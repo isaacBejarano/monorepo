@@ -12,16 +12,21 @@ jobs:
     runs-on: ubuntu-26.04
     defaults:
       run:
-        working-directory: Api
+        working-directory: Api/tests
     steps:
       - uses: actions/checkout@v5
       - name: CI .NET
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: "10.0.112"
-      - run: dotnet restore
-      - run: dotnet build --no-restore
-      - run: dotnet test --no-build --verbosity normal
+          cache: true
+          cache-dependency-path: "Api/**/*.csproj"
+      - name: Restore dependencies
+        run: dotnet restore Api/
+      - name: Build API
+        run: dotnet build Api/ --no-restore --configuration Release
+      - name: Run xUnit Tests
+        run: dotnet test Api/tests/ --no-build --configuration Release --verbosity normal
   # job 2 - App
   ci-angular:
     runs-on: ubuntu-26.04
