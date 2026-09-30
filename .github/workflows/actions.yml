@@ -26,7 +26,7 @@ jobs:
       - name: Build API
         run: dotnet build src/Api.csproj --no-restore --configuration Release
       - name: Run xUnit Tests
-        run: dotnet test --project=tests/Api.Tests.csproj --no-build
+        run: dotnet test --project=tests/Api.Tests.csproj
   # job 2 - App
   ci-angular:
     runs-on: ubuntu-26.04
