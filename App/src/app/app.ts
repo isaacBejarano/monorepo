@@ -15,6 +15,6 @@ export class App implements OnInit {
   readonly title = signal('App');
 
   ngOnInit():void {
-  console.log('INIT...');
+  console.log('INIT 2...');
   }
 }
