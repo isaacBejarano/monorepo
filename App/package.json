@@ -8,7 +8,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "vitest",
-    "coverage": "vitest --coverage"
+    "coverage": "vitest --coverage",
+    "ci:test": "vitest run"
   },
   "private": true,
   "packageManager": "npm@11.19.0",
