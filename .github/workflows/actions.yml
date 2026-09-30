@@ -22,7 +22,7 @@ jobs:
           cache: true
           cache-dependency-path: "Api/**/*.csproj"
       - name: Restore dependencies
-        run: dotnet restore Api/
+        run: dotnet restore Api
       - name: Build API
         run: dotnet build Api/ --no-restore --configuration Release
       - name: Run xUnit Tests
