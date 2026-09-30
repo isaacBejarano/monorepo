@@ -1,0 +1,27 @@
+# https://editorconfig.org/
+
+# .NET
+
+# config file prioritary
+root = true
+
+# common
+
+[*]
+charset = utf-8
+indent_style = space
+indent_size = 2
+end_of_line = lf
+insert_final_newline = true
+trim_trailing_whitespace = true
+
+# lang
+
+[*.md]
+max_line_length = off
+trim_trailing_whitespace = false
+
+[*.cs]
+csharp_new_line_before_open_brace =  none
+# accessors, anonymous_methods, anonymous_types, control_blocks, events, indexers, lambdas, local_functions, methods, object_collection_array_initializers, properties, types
+csharp_style_var_when_type_is_apparent = true:suggestion

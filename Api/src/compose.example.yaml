@@ -1,0 +1,45 @@
+# (1) .gitignore
+# (2) .env
+# (3) Docu --> https://docs.docker.com/reference/compose-file/services/
+
+## SCHEMA ##
+############
+
+# attribute `version` is obsolete. Don't use it
+
+# name: "..." # custom name (optional)
+
+# services (aka containers) #
+services:
+  db: # container's custom name
+    image: mariadb # official image name <-- (cmd) docker search mariadb -f is-official=true
+    restart: always
+    ports:
+      - '3306:3306' # map ports machine:container (usually 3306 for mariadb)
+    environment:
+      MYSQL_DATABASE: COMPOSE_DB # gitignored .env file var
+      MYSQL_USER: COMPOSE_DB_USER # gitignored .env file var
+      MYSQL_PASSWORD: COMPOSE_DB_PASSWORD # gitignored .env file var
+      MYSQL_ROOT_PASSWORD: COMPOSE_DB_ROOT_PASSWORD # gitignored .env file var
+    volumes:
+      - ./db-data:/var/lib/mysql # persiste records locally (where "db-data" is a custom folder name)
+    networks:
+      backend: # custom name of the networks defined
+
+# networks #
+networks:
+  # The presence of these objects is sufficient to define them
+  backend:
+    ipam:
+      driver: default
+
+# volumes (aka db persisted data) #
+volumes:
+  db-data: # custom name of the peristed date (aka volume)
+    driver: default
+
+# configs #
+
+# secrets #
+
+# include & models

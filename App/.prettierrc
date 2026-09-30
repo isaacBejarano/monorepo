@@ -1,0 +1,23 @@
+printWidth: 100
+singleQuote: true
+overrides:
+  - files: '*.html'
+    options:
+      parser: 'angular'
+      # bracketSameLine: false
+      # bracketSpacing: true
+      # checkIgnorePragma: false
+      # cursorOffset: -1
+      # experimentalTernaries: false
+      # insertPragma: false
+      # jsxSingleQuote: false
+      # printWidth: 80
+      # rangeEnd: null
+      # rangeStart: 0
+      # requirePragma: false
+      # semi: true
+      # singleAttributePerLine: false
+      # singleQuote: false
+      # tabWidth: 2
+      # useTabs: false
+      # vueIndentScriptAndStyle: false
